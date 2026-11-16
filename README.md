@@ -1,0 +1,3 @@
+# tictactoe
+
+A terminal tic-tac-toe game in Python. Modes: two players on one keyboard, or one player against the computer. The computer has three difficulty levels: easy plays random legal moves, medium blocks your wins and takes its own, hard uses minimax and never loses. The board shows numbered cells 1-9 and the player types a number. Detect a win or a draw, then offer a rematch; keep the score for the session. Keep the game logic (board, rules, winner, AI) separate from the terminal input and output, so it is fully unit tested: every win line, the draw, illegal moves, and that the hard AI never loses against every possible sequence of moves.
