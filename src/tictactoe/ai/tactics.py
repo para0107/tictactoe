@@ -2,7 +2,7 @@ import random
 
 from src.tictactoe.core.board import Board
 from src.tictactoe.core.mark import Mark
-from src.tictactoe.core.rules import get_winner, list_legal_moves, with_mark
+from src.tictactoe.core.rules import get_winner, list_legal_moves, mark_cell
 
 
 def choose_random_move(board: Board, rng: random.Random) -> int:
@@ -13,7 +13,7 @@ def choose_random_move(board: Board, rng: random.Random) -> int:
 def _find_winning_move(board: Board, mark: Mark) -> int | None:
     """Return a cell where placing the mark wins, if there is one."""
     for cell in list_legal_moves(board):
-        candidate = with_mark(board, cell, mark)
+        candidate = mark_cell(board, cell, mark)
         if get_winner(candidate) is mark:
             return cell
     return None

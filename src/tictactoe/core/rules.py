@@ -31,7 +31,7 @@ def list_legal_moves(board: Board) -> list[int]:
     return [cell for cell, occupant in enumerate(board) if occupant is None]
 
 
-def with_mark(board: Board, cell: int, mark: Mark) -> Board:
+def mark_cell(board: Board, cell: int, mark: Mark) -> Board:
     """Return a new board with the mark set on the cell, without checking the rules."""
     return board[:cell] + (mark,) + board[cell + 1 :]
 
@@ -51,4 +51,4 @@ def place_mark(board: Board, cell: int, mark: Mark) -> Board:
         raise IllegalMoveError("The game is already over")
     if mark is not get_next_mark(board):
         raise IllegalMoveError(f"It is not {mark}'s turn")
-    return with_mark(board, cell, mark)
+    return mark_cell(board, cell, mark)
